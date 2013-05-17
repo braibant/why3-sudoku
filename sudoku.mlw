@@ -23,7 +23,8 @@ module Solve
        offsets: map int int. 
        distinct_pairs g (start[i]) offsets 9 9 -> 
        valid_chunk g i start offsets
-       
+
+       (*
        let valid_chunk (g: grid) (i:int) (start: map int int) (offsets: map int int) : bool
        ensures  {result = True -> valid_chunk g i start offsets }
         = 
@@ -41,20 +42,52 @@ module Solve
        with 
        | Invalid -> False
        end
+       *)
 
-       let valid_column g i : bool 
+       use array.Array 
+
+       predicate is_grid (g: grid) =
+       forall k : int. 1 <= g[k] <= 9 \/ g[k] = -1
+  
+       let valid_chunk (g: grid) (i:int) (start: map int int) (offsets: map int int) : bool
+       requires {is_grid g}
+       ensures  {result = True -> valid_chunk g i start offsets }
+        = 
+       let s = start[i] in       
+       let b = Array.make 9 False in 
+       try 
+       for o = 0 to 8 do
+       invariant {distinct_pairs g s offsets o o}
+       invariant {forall o':int. 0 <= o' < o -> g[s+offsets[o']] <> -1 -> Array.get b (g[s+offsets[o']] - 1) = True} 
+           let n = g[s + offsets[o]] in 
+           if n <> -1 then 
+           begin 
+                 if Array.([]) b (n-1) then raise Invalid;
+                 Array.([]<-) b (n-1) True
+           end          
+       done;       
+       True
+       with 
+       | Invalid -> False
+       end
+       
+       let valid_column g i : bool        
+       requires {is_grid g}
        ensures {result = True -> valid_column g i}= 
        valid_chunk g i column_start column_offsets
 
        let valid_row g i : bool 
+       requires {is_grid g}
        ensures {result = True -> valid_row g i} = 
        valid_chunk g i row_start row_offsets 
 
        let valid_square g i : bool 
+       requires {is_grid g}
        ensures {result = True -> valid_square g i}= 
        valid_chunk g i square_start square_offsets 
 
        let valid_grid (g: grid) 
+       requires {is_grid g}
        ensures {result = True -> valid g} =
        try
        for i = 0 to 80 do
@@ -82,6 +115,7 @@ module Solve
 
        use import option.Option
        let rec solve (g:grid) (i : int) : option grid 
+       requires {is_grid g}
        requires {valid g}
        requires {partial g i}
        requires {i <= 81}
@@ -107,11 +141,12 @@ module Solve
      
        let solve_grid (g: grid) : option grid 
        requires {valid g}
+       requires {is_grid g}
        requires {partial g 0}
        ensures {forall g': grid. result = Some g' -> is_solution_for g' g}=
        solve g 0
    
-            
+           
 end
 
 (* 

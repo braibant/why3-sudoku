@@ -5,7 +5,6 @@ theory Grid
   use export map.Map
 
   type grid = map int int
-
   (* a "chunk" is either a column, a row or a square.
 
    a chunk is defined by a starting index s and a set of 9 offsets
