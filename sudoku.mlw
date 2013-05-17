@@ -1,0 +1,126 @@
+module Solve 
+       use import grid.Grid
+       use import ref.Ref 
+       use import bool.Bool
+       use import int.Int
+       
+       exception Invalid
+
+       predicate distinct_pair (g: grid) (s: int) (offsets: map int int) (o1:int) (o2:int) 
+       =
+       let i1 = s + offsets[o1] in 
+       let i2 = s + offsets[o2] in
+       o1 <> o2 -> 
+       1 <= g[i1] <= 9 /\ 1 <= g[i2] <= 9 -> 
+       g[i1] <> g[i2]
+
+       predicate distinct_pairs (g: grid) (s: int) (offsets: map int int) (o1:int) (o2:int) =
+       forall a b: int. 
+       0 <= a < o1 /\ 0 <= b < o2 -> 
+       distinct_pair g s offsets a b
+       
+       lemma distinct_pairs_to_valid_chunk: forall g:grid, i:int, start: map int int, 
+       offsets: map int int. 
+       distinct_pairs g (start[i]) offsets 9 9 -> 
+       valid_chunk g i start offsets
+       
+       let valid_chunk (g: grid) (i:int) (start: map int int) (offsets: map int int) : bool
+       ensures  {result = True -> valid_chunk g i start offsets }
+        = 
+       let s = start[i] in       
+       try 
+       for o1 = 0 to 8 do
+       invariant {distinct_pairs g s offsets o1 9}
+       	   for o2 = 0 to 8 do
+	   invariant {distinct_pairs g s offsets (1 + o1) o2}
+	   if g[s +offsets[o1]] = g[s + offsets[o2]]
+	   then raise Invalid
+	   done
+       done;
+       True
+       with 
+       | Invalid -> False
+       end
+
+       let valid_column g i : bool 
+       ensures {result = True -> valid_column g i}= 
+       valid_chunk g i column_start column_offsets
+
+       let valid_row g i : bool 
+       ensures {result = True -> valid_row g i} = 
+       valid_chunk g i row_start row_offsets 
+
+       let valid_square g i : bool 
+       ensures {result = True -> valid_square g i}= 
+       valid_chunk g i square_start square_offsets 
+
+       let valid_grid (g: grid) 
+       ensures {result = True -> valid g} =
+       try
+       for i = 0 to 80 do
+       invariant {forall j:int. 0 <= j < i -> 
+                  valid_column g j /\ valid_row g j /\ valid_square g j
+		  }
+       if not (valid_column g i && valid_row g i && valid_square g i)
+       then raise Invalid
+       done;
+       True
+       with 
+       | Invalid -> False
+       end
+       
+       (* a grid [g] is partially filled up to [i] *)
+       predicate partial (g:grid) (i:int) =
+       (forall k: int. 0 <= k < i -> 1 <= g[k] <= 9)
+       /\ (forall k : int. is_index k -> 1 <= g[k] <= 9 \/ g[k] = -1)
+       
+       lemma partial_1 : forall g:grid, i:int. 
+       i < 81 -> 
+       partial g i -> 
+       g[i] <> -1 -> 
+       partial g (i+1) 
+
+       use import option.Option
+       let rec solve (g:grid) (i : int) : option grid 
+       requires {valid g}
+       requires {partial g i}
+       requires {i <= 81}
+       ensures {forall g': grid. result = Some g' -> valid g' /\ included g g'}
+       ensures {forall g': grid. result = Some g' -> full g'}
+        =
+       if i = 81 
+       then Some g
+       else if g[i] <> -1 then solve g (i + 1)
+       else 
+            let r = ref None in 
+            let x = ref 1 in 
+            while !r = None && !x <= 9 do 
+            invariant {1 <= !x <= 9}
+            invariant {forall g': grid. !r = Some g' -> valid g' /\ included g g'}
+            invariant {forall g': grid. !r = Some g' -> full g'}
+            let g' = g[i <- !x] in 
+            if valid_grid g'
+            then r := solve g' (i+1)
+            done;
+            !r
+
+     
+       let solve_grid (g: grid) : option grid 
+       requires {valid g}
+       requires {partial g 0}
+       ensures {forall g': grid. result = Some g' -> is_solution_for g' g}=
+       solve g 0
+   
+            
+end
+
+(* 
+
+ *)
+(*
+Local Variables:
+compile-command: "why3 -L ./ sudoku.mlw"	
+End:
+*)
+		
+		   
