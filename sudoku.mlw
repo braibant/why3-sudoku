@@ -130,9 +130,6 @@ module Solve
        start[i] <> start[j] ->
        valid_chunk g[i <- x] j start offsets       
 
-       predicate valid_chunks (g: grid) (i: int) =
-       valid_column g i && valid_row g i && valid_square g i
-
        (* the property of not being in the same equivalence class *)
        predicate diff (i j: int) =
           square_start[i] <> square_start[j]
@@ -171,16 +168,9 @@ module Solve
        
        lemma valid_chunk_update_preserve: forall g:grid, i j x :int.
        is_index i /\ is_index j ->
-       valid_chunks g j -> 
+       valid_column g j && valid_row g j && valid_square g j -> 
        diff i j ->
        valid_column g[i <- x] j && valid_row g[i <- x] j && valid_square g[i <- x] j
-
-       (* This lemma is equivalent to the previous one, modulo unfolding... *)
-       lemma valid_chunk_update_preserve': forall g:grid, i j x :int.
-       is_index i /\ is_index j ->
-       valid_chunks g j -> 
-       diff i j ->
-       valid_chunks (g[i <- x]) j              
 
        (* updating a cell, we potentially invalidate at most its row,
        its column or its square. That is, the validity of other chunks
@@ -193,9 +183,9 @@ module Solve
        requires {is_index i}
        ensures  {result = True -> valid (g[i<-x])}        
        =
-       assert {forall j: int. is_index j -> valid_chunks g j};
+       assert {forall j: int. is_index j -> valid_column g j && valid_row g j && valid_column g j};
        let g' = g[i <- x] in 
-       assert {forall j: int. is_index j -> diff i j -> valid_chunks g' j};
+       assert {forall j: int. is_index j -> diff i j -> valid_column g j && valid_row g j && valid_column g j};
        valid_column g' i && valid_row g' i && valid_square g' i
 
        (* Section 3: solving the sudoku grid  *)
@@ -248,9 +238,6 @@ module Solve
            
 end
 
-(* 
-
- *)
 (*
 Local Variables:
 compile-command: "why3 -L ./ sudoku.mlw"	
