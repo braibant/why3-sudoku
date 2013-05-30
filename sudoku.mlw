@@ -48,6 +48,8 @@ module Solve
 
        predicate is_grid (g: grid) =
        forall k : int. 1 <= g[k] <= 9 \/ g[k] = -1
+       
+       (* Section 1: efficient check of the validity of a chunk *)
   
        let valid_chunk (g: grid) (i:int) (start: map int int) (offsets: map int int) : bool
        requires {is_grid g}
@@ -102,6 +104,102 @@ module Solve
        | Invalid -> False
        end
        
+       (* Section 2: checking that an update is valid *)
+
+       lemma valid_chunk_ex:
+       forall g g': grid, i: int, start: map int int, offsets: map int int.
+       valid_chunk g i start offsets  -> 
+       (forall o: int. 0 <= o < 9 -> g'[start[i] + offsets[o]] = g[start[i] + offsets[o]]) ->
+       valid_chunk g' i start offsets 
+
+       predicate wf_maps (start:map int int) (offsets:map int int)  = 
+       forall i j: int.
+       0 <= i < 81 /\ 0 <= j < 81 ->
+       start[i] <> start[j] -> 
+       (forall o: int. 0 <= o < 9 -> (start[j] + offsets[o] <> i))       
+
+       lemma wf_maps_column : wf_maps column_start column_offsets
+       lemma wf_maps_square : wf_maps square_start square_offsets
+       lemma wf_maps_row    : wf_maps row_start    row_offsets
+
+       lemma valid_chunk_ex2:
+       forall g: grid, i j x: int, start: map int int, offsets: map int int.
+       is_index i /\ is_index j ->
+       valid_chunk g j start offsets  ->
+       wf_maps start offsets ->
+       start[i] <> start[j] ->
+       valid_chunk g[i <- x] j start offsets       
+
+       predicate valid_chunks (g: grid) (i: int) =
+       valid_column g i && valid_row g i && valid_square g i
+
+       (* the property of not being in the same equivalence class *)
+       predicate diff (i j: int) =
+          square_start[i] <> square_start[j]
+       && column_start[i] <> column_start[j]
+       && row_start[i] <> row_start[j]
+
+
+       (* This lemma can be proved in coq *)
+       lemma valid_chunk_start_invariant: forall g:grid, start:map int int, offsets:map int int.
+       forall i j: int.
+       valid_chunk g i start offsets ->
+       start[i] = start[j] ->
+       valid_chunk g j start offsets
+
+       lemma valid_chunk_update_square:
+       forall g: grid, i j x: int.
+       is_index i /\ is_index j ->
+       valid_square g j ->
+       square_start[i] <> square_start[j] ->
+       valid_square g[i <- x] j
+
+       lemma valid_chunk_update_column:
+       forall g: grid, i j x: int.
+       is_index i /\ is_index j ->
+       valid_column g j ->
+       column_start[i] <> column_start[j] ->
+       valid_column g[i <- x] j
+
+       lemma valid_chunk_update_row:
+       forall g: grid, i j x: int.
+       is_index i /\ is_index j ->
+       valid_row g j ->
+       row_start[i] <> row_start[j] ->
+       valid_row g[i <- x] j
+
+       
+       lemma valid_chunk_update_preserve: forall g:grid, i j x :int.
+       is_index i /\ is_index j ->
+       valid_chunks g j -> 
+       diff i j ->
+       valid_column g[i <- x] j && valid_row g[i <- x] j && valid_square g[i <- x] j
+
+       (* This lemma is equivalent to the previous one, modulo unfolding... *)
+       lemma valid_chunk_update_preserve': forall g:grid, i j x :int.
+       is_index i /\ is_index j ->
+       valid_chunks g j -> 
+       diff i j ->
+       valid_chunks (g[i <- x]) j              
+
+       (* updating a cell, we potentially invalidate at most its row,
+       its column or its square. That is, the validity of other chunks
+       is preserved. *)              	      	      
+
+       let valid_update (g: grid) (i: int) (x: int) : bool
+       requires {is_grid g}
+       requires {valid g}
+       requires {1 <= x <= 9}
+       requires {is_index i}
+       ensures  {result = True -> valid (g[i<-x])}        
+       =
+       assert {forall j: int. is_index j -> valid_chunks g j};
+       let g' = g[i <- x] in 
+       assert {forall j: int. is_index j -> diff i j -> valid_chunks g' j};
+       valid_column g' i && valid_row g' i && valid_square g' i
+
+       (* Section 3: solving the sudoku grid  *)
+       
        (* a grid [g] is partially filled up to [i] *)
        predicate partial (g:grid) (i:int) =
        (forall k: int. 0 <= k < i -> 1 <= g[k] <= 9)
@@ -113,12 +211,13 @@ module Solve
        g[i] <> -1 -> 
        partial g (i+1) 
 
+       
        use import option.Option
        let rec solve (g:grid) (i : int) : option grid 
        requires {is_grid g}
        requires {valid g}
        requires {partial g i}
-       requires {i <= 81}
+       requires {0 <= i <= 81}
        ensures {forall g': grid. result = Some g' -> valid g' /\ included g g'}
        ensures {forall g': grid. result = Some g' -> full g'}
         =
@@ -133,7 +232,7 @@ module Solve
             invariant {forall g': grid. !r = Some g' -> valid g' /\ included g g'}
             invariant {forall g': grid. !r = Some g' -> full g'}
             let g' = g[i <- !x] in 
-            if valid_grid g'
+            if valid_update g i !x
             then r := solve g' (i+1)
             done;
             !r
