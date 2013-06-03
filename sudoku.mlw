@@ -164,8 +164,8 @@ module Solve
        valid_row g j ->
        row_start[i] <> row_start[j] ->
        valid_row g[i <- x] j
-
        
+       (* updating a cell does not invalidate the cell in other equivalence classes *)
        lemma valid_chunk_update_preserve: forall g:grid, i j x :int.
        is_index i /\ is_index j ->
        valid_column g j && valid_row g j && valid_square g j -> 
@@ -175,7 +175,6 @@ module Solve
        (* updating a cell, we potentially invalidate at most its row,
        its column or its square. That is, the validity of other chunks
        is preserved. *)              	      	      
-
        let valid_update (g: grid) (i: int) (x: int) : bool
        requires {is_grid g}
        requires {valid g}
@@ -185,9 +184,9 @@ module Solve
        =
        assert {forall j: int. is_index j -> valid_column g j && valid_row g j && valid_column g j};
        let g' = g[i <- x] in 
-       assert {forall j: int. is_index j -> diff i j -> valid_column g j && valid_row g j && valid_column g j};
-       valid_column g' i && valid_row g' i && valid_square g' i
-
+       assert {forall j: int. is_index j -> diff i j -> valid_column g' j && valid_row g' j && valid_column g' j};
+       valid_column g' i && valid_row g' i && valid_square g' i       
+       
        (* Section 3: solving the sudoku grid  *)
        
        (* a grid [g] is partially filled up to [i] *)
@@ -200,40 +199,46 @@ module Solve
        partial g i -> 
        g[i] <> -1 -> 
        partial g (i+1) 
-
        
-       use import option.Option
-       let rec solve (g:grid) (i : int) : option grid 
-       requires {is_grid g}
-       requires {valid g}
-       requires {partial g i}
-       requires {0 <= i <= 81}
-       ensures {forall g': grid. result = Some g' -> valid g' /\ included g g'}
-       ensures {forall g': grid. result = Some g' -> full g'}
-        =
-       if i = 81 
-       then Some g
-       else if g[i] <> -1 then solve g (i + 1)
-       else 
-            let r = ref None in 
-            let x = ref 1 in 
-            while !r = None && !x <= 9 do 
-            invariant {1 <= !x <= 9}
-            invariant {forall g': grid. !r = Some g' -> valid g' /\ included g g'}
-            invariant {forall g': grid. !r = Some g' -> full g'}
-            let g' = g[i <- !x] in 
-            if valid_update g i !x
-            then r := solve g' (i+1)
-            done;
-            !r
+       exception Found 
+       let solve (g0:grid) (i:int) : option grid 
+       requires {valid g0}
+       requires {is_grid g0}
+       requires {partial g0 0}
+       ensures {forall g': grid. result = Some g' -> is_solution_for g' g0}
+       =
+       	   let g = ref g0 in 
+       	   let rec solve (i:int) : bool
+	   requires {0 <= i <= 81}
+	   requires {is_grid !g}
+	   requires {valid !g}
+	   requires {partial !g i}
+	   requires {included g0 !g}
+	   ensures  {result = True -> valid !g /\ included g0 !g /\ full !g}
+	   ensures  {result = False -> !g = old !g}
+	   variant {81 - i}
+	   = 
+	   if i = 81 
+	   then True
+	   else if !g[i] <> -1 then solve (i+1)
+	   else	try 
+			let ghost g_old = !g in 
+	   	   	for x = 1 to 9 do 
+			invariant {valid !g /\ included g0 !g /\ partial !g i}
+			invariant {is_grid !g}		
+			invariant {!g = g_old}
+			if valid_update !g i x 
+			then begin g := !g[i <- x]; 
+			     	   if solve (i+1)
+				   then raise Found
+				   else begin g := (!g)[i<- -1] end
+			     end
+			done;
+			False
+		with Found -> True end
+	   in 
+	   if solve 0 then Some !g else None
 
-     
-       let solve_grid (g: grid) : option grid 
-       requires {valid g}
-       requires {is_grid g}
-       requires {partial g 0}
-       ensures {forall g': grid. result = Some g' -> is_solution_for g' g}=
-       solve g 0
    
            
 end
