@@ -14,6 +14,7 @@ module Solve
        1 <= g[i1] <= 9 /\ 1 <= g[i2] <= 9 -> 
        g[i1] <> g[i2]
 
+       (* distinct pairs up to o1 and o2 *)
        predicate distinct_pairs (g: grid) (s: int) (offsets: map int int) (o1:int) (o2:int) =
        forall a b: int. 
        0 <= a < o1 /\ 0 <= b < o2 -> 
@@ -200,6 +201,8 @@ module Solve
        g[i] <> -1 -> 
        partial g (i+1) 
        
+       use import option.Option
+
        exception Found 
        let solve (g0:grid) (i:int) : option grid 
        requires {valid g0}

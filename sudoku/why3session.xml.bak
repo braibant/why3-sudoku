@@ -24,13 +24,13 @@
   version="8.4pl1"/>
  <file
   name="../sudoku.mlw"
-  verified="false"
+  verified="true"
   expanded="true">
   <theory
    name="Solve"
    locfile="../sudoku.mlw"
    loclnum="1" loccnumb="7" loccnume="12"
-   verified="false"
+   verified="true"
    expanded="true">
    <goal
     name="distinct_pairs_to_valid_chunk"
@@ -821,43 +821,35 @@
    <goal
     name="valid_chunk_start_invariant"
     locfile="../sudoku.mlw"
-    loclnum="148" loccnumb="13" loccnume="40"
-    sum="87000f21e2029d6e90bf4ef60bbda143"
-    proved="false"
+    loclnum="141" loccnumb="13" loccnume="40"
+    sum="7963efa40fc89b23a2e556fb7c35da4c"
+    proved="true"
     expanded="false"
     shape="avalid_chunkV0V4V1V2Iainfix =amixfix []V1V3amixfix []V1V4Iavalid_chunkV0V3V1V2FF">
     <proof
-     prover="2"
-     timelimit="10"
-     memlimit="2000"
-     obsolete="true"
-     archived="false">
-     <result status="timeout" time="9.99"/>
-    </proof>
-    <proof
      prover="3"
-     timelimit="10"
-     memlimit="2000"
-     obsolete="true"
+     timelimit="15"
+     memlimit="4000"
+     obsolete="false"
      archived="false">
-     <result status="timeout" time="10.07"/>
+     <result status="timeout" time="15.09"/>
     </proof>
     <proof
      prover="4"
-     timelimit="20"
+     timelimit="15"
      memlimit="4000"
-     edited="sudoku_Solve_valid_chunk_start_invariant_2.v"
-     obsolete="true"
+     edited="sudoku_Solve_valid_chunk_start_invariant_3.v"
+     obsolete="false"
      archived="false">
-     <result status="valid" time="2.94"/>
+     <result status="valid" time="2.63"/>
     </proof>
    </goal>
    <goal
     name="valid_chunk_update_square"
     locfile="../sudoku.mlw"
-    loclnum="154" loccnumb="13" loccnume="38"
-    sum="dd252d8d62392447b19938fe5269738a"
-    proved="false"
+    loclnum="147" loccnumb="13" loccnume="38"
+    sum="add3253e4a149640b64da2862d7bdc27"
+    proved="true"
     expanded="false"
     shape="avalid_squareamixfix [&lt;-]V0V1V3V2Iainfix =amixfix []asquare_startV1amixfix []asquare_startV2NIavalid_squareV0V2Iais_indexV2Aais_indexV1F">
     <proof
@@ -870,9 +862,9 @@
     </proof>
     <proof
      prover="3"
-     timelimit="10"
-     memlimit="2000"
-     obsolete="true"
+     timelimit="15"
+     memlimit="4000"
+     obsolete="false"
      archived="false">
      <result status="valid" time="7.15"/>
     </proof>
@@ -880,16 +872,16 @@
    <goal
     name="valid_chunk_update_column"
     locfile="../sudoku.mlw"
-    loclnum="161" loccnumb="13" loccnume="38"
-    sum="f82965273194a886a44c7a8e3b6f3f47"
-    proved="false"
+    loclnum="154" loccnumb="13" loccnume="38"
+    sum="78cc1924fea4bb59b489a0b258c0e3a7"
+    proved="true"
     expanded="false"
     shape="avalid_columnamixfix [&lt;-]V0V1V3V2Iainfix =amixfix []acolumn_startV1amixfix []acolumn_startV2NIavalid_columnV0V2Iais_indexV2Aais_indexV1F">
     <proof
      prover="3"
-     timelimit="10"
-     memlimit="2000"
-     obsolete="true"
+     timelimit="15"
+     memlimit="4000"
+     obsolete="false"
      archived="false">
      <result status="valid" time="7.18"/>
     </proof>
@@ -897,28 +889,36 @@
    <goal
     name="valid_chunk_update_row"
     locfile="../sudoku.mlw"
-    loclnum="168" loccnumb="13" loccnume="35"
-    sum="ce53e89a3910de22f77ffcb77d59d3dd"
-    proved="false"
+    loclnum="161" loccnumb="13" loccnume="35"
+    sum="5962bfee6805b4763e6bb0cf98d85d12"
+    proved="true"
     expanded="false"
     shape="avalid_rowamixfix [&lt;-]V0V1V3V2Iainfix =amixfix []arow_startV1amixfix []arow_startV2NIavalid_rowV0V2Iais_indexV2Aais_indexV1F">
     <proof
      prover="3"
+     timelimit="15"
+     memlimit="4000"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="7.01"/>
+    </proof>
+    <proof
+     prover="4"
      timelimit="10"
      memlimit="2000"
      obsolete="true"
      archived="false">
-     <result status="valid" time="7.01"/>
+     <unedited/>
     </proof>
    </goal>
    <goal
     name="valid_chunk_update_preserve"
     locfile="../sudoku.mlw"
-    loclnum="176" loccnumb="13" loccnume="40"
-    sum="f0e2c43575777af236c39d0c31566990"
-    proved="false"
-    expanded="true"
-    shape="avalid_chunksamixfix [&lt;-]V0V1V3V2IadiffV1V2Iavalid_chunksV0V2Iais_indexV2Aais_indexV1F">
+    loclnum="169" loccnumb="13" loccnume="40"
+    sum="9c9dcd3564058414de8511f24bd74299"
+    proved="true"
+    expanded="false"
+    shape="avalid_squareamixfix [&lt;-]V0V1V3V2Aavalid_rowamixfix [&lt;-]V0V1V3V2Aavalid_columnamixfix [&lt;-]V0V1V3V2IadiffV1V2Iavalid_squareV0V2Aavalid_rowV0V2Aavalid_columnV0V2Iais_indexV2Aais_indexV1F">
     <proof
      prover="1"
      timelimit="10"
@@ -929,22 +929,22 @@
     </proof>
     <proof
      prover="3"
-     timelimit="10"
-     memlimit="2000"
+     timelimit="15"
+     memlimit="4000"
      obsolete="false"
      archived="false">
-     <undone/>
+     <result status="valid" time="0.14"/>
     </proof>
    </goal>
    <goal
     name="WP_parameter valid_update"
     locfile="../sudoku.mlw"
-    loclnum="187" loccnumb="11" loccnume="23"
+    loclnum="178" loccnumb="11" loccnume="23"
     expl="VC for valid_update"
-    sum="694317a7054e4aa570a0ae14274caf0b"
-    proved="false"
-    expanded="true"
-    shape="avalidamixfix [&lt;-]V0V1V2Iainfix =V5aTrueIavalid_squareamixfix [&lt;-]V0V1V2V1Iainfix =V5aTrueFAais_gridamixfix [&lt;-]V0V1V2Iainfix =V4aTrueIavalid_rowamixfix [&lt;-]V0V1V2V1Iainfix =V4aTrueFAais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFAais_gridamixfix [&lt;-]V0V1V2Aavalid_chunksamixfix [&lt;-]V0V1V2V6IaequivV1V6NIais_indexV6FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
+    sum="e89711845bc4e66fa8c77ead4c79cacc"
+    proved="true"
+    expanded="false"
+    shape="avalidamixfix [&lt;-]V0V1V2Iainfix =V5aTrueIavalid_squareamixfix [&lt;-]V0V1V2V1Iainfix =V5aTrueFAais_gridamixfix [&lt;-]V0V1V2Iainfix =V4aTrueIavalid_rowamixfix [&lt;-]V0V1V2V1Iainfix =V4aTrueFAais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFAais_gridamixfix [&lt;-]V0V1V2Aavalid_columnamixfix [&lt;-]V0V1V2V6Aavalid_rowamixfix [&lt;-]V0V1V2V6Aavalid_columnamixfix [&lt;-]V0V1V2V6IadiffV1V6Iais_indexV6FAavalid_columnV0V7Aavalid_rowV0V7Aavalid_columnV0V7Iais_indexV7FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
     <label
      name="expl:VC for valid_update"/>
     <proof
@@ -965,146 +965,174 @@
     </proof>
     <transf
      name="split_goal_wp"
-     proved="false"
-     expanded="true">
+     proved="true"
+     expanded="false">
      <goal
       name="WP_parameter valid_update.1"
       locfile="../sudoku.mlw"
-      loclnum="187" loccnumb="11" loccnume="23"
+      loclnum="178" loccnumb="11" loccnume="23"
       expl="1. assertion"
-      sum="6ab74987a6bb5b25d0c2ad00095e65c1"
-      proved="false"
+      sum="78fb7d949bbb63e2798fb805df79a0bc"
+      proved="true"
       expanded="false"
-      shape="avalid_chunksamixfix [&lt;-]V0V1V2V3IaequivV1V3NIais_indexV3FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
+      shape="avalid_columnV0V3Aavalid_rowV0V3Aavalid_columnV0V3Iais_indexV3FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
       <label
        name="expl:VC for valid_update"/>
       <proof
        prover="1"
-       timelimit="10"
-       memlimit="2000"
+       timelimit="15"
+       memlimit="4000"
        obsolete="true"
        archived="false">
-       <result status="timeout" time="9.99"/>
+       <result status="timeout" time="14.99"/>
       </proof>
       <proof
        prover="3"
-       timelimit="10"
-       memlimit="2000"
-       obsolete="true"
+       timelimit="15"
+       memlimit="4000"
+       obsolete="false"
        archived="false">
-       <result status="timeout" time="10.08"/>
+       <result status="valid" time="0.06"/>
       </proof>
      </goal>
      <goal
       name="WP_parameter valid_update.2"
       locfile="../sudoku.mlw"
-      loclnum="187" loccnumb="11" loccnume="23"
-      expl="2. precondition"
-      sum="358686d836b1f46d5b20058c35fce61f"
-      proved="false"
+      loclnum="178" loccnumb="11" loccnume="23"
+      expl="2. assertion"
+      sum="3fef4835b11cffd160cf416866467dfe"
+      proved="true"
       expanded="false"
-      shape="ais_gridamixfix [&lt;-]V0V1V2Iavalid_chunksamixfix [&lt;-]V0V1V2V3IaequivV1V3NIais_indexV3FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
+      shape="avalid_columnamixfix [&lt;-]V0V1V2V3Aavalid_rowamixfix [&lt;-]V0V1V2V3Aavalid_columnamixfix [&lt;-]V0V1V2V3IadiffV1V3Iais_indexV3FIavalid_columnV0V4Aavalid_rowV0V4Aavalid_columnV0V4Iais_indexV4FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
       <label
        name="expl:VC for valid_update"/>
       <proof
        prover="1"
-       timelimit="10"
-       memlimit="2000"
+       timelimit="15"
+       memlimit="4000"
        obsolete="true"
        archived="false">
-       <result status="timeout" time="9.99"/>
+       <result status="timeout" time="14.99"/>
       </proof>
       <proof
        prover="3"
-       timelimit="10"
-       memlimit="2000"
-       obsolete="true"
+       timelimit="15"
+       memlimit="4000"
+       obsolete="false"
        archived="false">
-       <result status="valid" time="0.04"/>
+       <result status="valid" time="0.20"/>
       </proof>
      </goal>
      <goal
       name="WP_parameter valid_update.3"
       locfile="../sudoku.mlw"
-      loclnum="187" loccnumb="11" loccnume="23"
+      loclnum="178" loccnumb="11" loccnume="23"
       expl="3. precondition"
-      sum="bb2f2cc7f3598377cdcaf6a1bc653a86"
-      proved="false"
+      sum="34402e0f87629a64201cb726364bce03"
+      proved="true"
       expanded="false"
-      shape="ais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFIais_gridamixfix [&lt;-]V0V1V2Iavalid_chunksamixfix [&lt;-]V0V1V2V4IaequivV1V4NIais_indexV4FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
+      shape="ais_gridamixfix [&lt;-]V0V1V2Iavalid_columnamixfix [&lt;-]V0V1V2V3Aavalid_rowamixfix [&lt;-]V0V1V2V3Aavalid_columnamixfix [&lt;-]V0V1V2V3IadiffV1V3Iais_indexV3FIavalid_columnV0V4Aavalid_rowV0V4Aavalid_columnV0V4Iais_indexV4FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
       <label
        name="expl:VC for valid_update"/>
       <proof
        prover="1"
-       timelimit="10"
-       memlimit="2000"
+       timelimit="15"
+       memlimit="4000"
        obsolete="true"
        archived="false">
-       <result status="timeout" time="9.99"/>
+       <result status="timeout" time="14.98"/>
       </proof>
       <proof
        prover="3"
-       timelimit="10"
-       memlimit="2000"
-       obsolete="true"
-       archived="false">
-       <result status="valid" time="0.01"/>
-      </proof>
-     </goal>
-     <goal
-      name="WP_parameter valid_update.4"
-      locfile="../sudoku.mlw"
-      loclnum="187" loccnumb="11" loccnume="23"
-      expl="4. precondition"
-      sum="cf92892f7a30db01b0bb8d7a081a6b61"
-      proved="false"
-      expanded="false"
-      shape="ais_gridamixfix [&lt;-]V0V1V2Iainfix =V4aTrueIavalid_rowamixfix [&lt;-]V0V1V2V1Iainfix =V4aTrueFIais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFIais_gridamixfix [&lt;-]V0V1V2Iavalid_chunksamixfix [&lt;-]V0V1V2V5IaequivV1V5NIais_indexV5FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
-      <label
-       name="expl:VC for valid_update"/>
-      <proof
-       prover="1"
-       timelimit="10"
-       memlimit="2000"
-       obsolete="true"
-       archived="false">
-       <result status="timeout" time="9.99"/>
-      </proof>
-      <proof
-       prover="3"
-       timelimit="10"
-       memlimit="2000"
-       obsolete="true"
+       timelimit="15"
+       memlimit="4000"
+       obsolete="false"
        archived="false">
        <result status="valid" time="0.04"/>
       </proof>
      </goal>
      <goal
-      name="WP_parameter valid_update.5"
+      name="WP_parameter valid_update.4"
       locfile="../sudoku.mlw"
-      loclnum="187" loccnumb="11" loccnume="23"
-      expl="5. postcondition"
-      sum="b643956ffbc49e550bb948b4fe166e88"
-      proved="false"
+      loclnum="178" loccnumb="11" loccnume="23"
+      expl="4. precondition"
+      sum="05d24a7881a0da7bc54b3c4d5d0dcc7a"
+      proved="true"
       expanded="false"
-      shape="avalidamixfix [&lt;-]V0V1V2Iainfix =V5aTrueIavalid_squareamixfix [&lt;-]V0V1V2V1Iainfix =V5aTrueFIais_gridamixfix [&lt;-]V0V1V2Iainfix =V4aTrueIavalid_rowamixfix [&lt;-]V0V1V2V1Iainfix =V4aTrueFIais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFIais_gridamixfix [&lt;-]V0V1V2Iavalid_chunksamixfix [&lt;-]V0V1V2V6IaequivV1V6NIais_indexV6FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
+      shape="ais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFIais_gridamixfix [&lt;-]V0V1V2Iavalid_columnamixfix [&lt;-]V0V1V2V4Aavalid_rowamixfix [&lt;-]V0V1V2V4Aavalid_columnamixfix [&lt;-]V0V1V2V4IadiffV1V4Iais_indexV4FIavalid_columnV0V5Aavalid_rowV0V5Aavalid_columnV0V5Iais_indexV5FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
       <label
        name="expl:VC for valid_update"/>
       <proof
        prover="1"
-       timelimit="10"
-       memlimit="2000"
+       timelimit="15"
+       memlimit="4000"
        obsolete="true"
        archived="false">
-       <result status="timeout" time="9.99"/>
+       <result status="timeout" time="14.98"/>
       </proof>
       <proof
        prover="3"
-       timelimit="10"
-       memlimit="2000"
+       timelimit="15"
+       memlimit="4000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.01"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter valid_update.5"
+      locfile="../sudoku.mlw"
+      loclnum="178" loccnumb="11" loccnume="23"
+      expl="5. precondition"
+      sum="00a5a08d58824cffdd9e2486c77921ff"
+      proved="true"
+      expanded="false"
+      shape="ais_gridamixfix [&lt;-]V0V1V2Iainfix =V4aTrueIavalid_rowamixfix [&lt;-]V0V1V2V1Iainfix =V4aTrueFIais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFIais_gridamixfix [&lt;-]V0V1V2Iavalid_columnamixfix [&lt;-]V0V1V2V5Aavalid_rowamixfix [&lt;-]V0V1V2V5Aavalid_columnamixfix [&lt;-]V0V1V2V5IadiffV1V5Iais_indexV5FIavalid_columnV0V6Aavalid_rowV0V6Aavalid_columnV0V6Iais_indexV6FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
+      <label
+       name="expl:VC for valid_update"/>
+      <proof
+       prover="1"
+       timelimit="15"
+       memlimit="4000"
        obsolete="true"
        archived="false">
-       <result status="valid" time="0.19"/>
+       <result status="timeout" time="14.98"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="15"
+       memlimit="4000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.04"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter valid_update.6"
+      locfile="../sudoku.mlw"
+      loclnum="178" loccnumb="11" loccnume="23"
+      expl="6. postcondition"
+      sum="f14f015211a9b949ff160afc2151ef36"
+      proved="true"
+      expanded="false"
+      shape="avalidamixfix [&lt;-]V0V1V2Iainfix =V5aTrueIavalid_squareamixfix [&lt;-]V0V1V2V1Iainfix =V5aTrueFIais_gridamixfix [&lt;-]V0V1V2Iainfix =V4aTrueIavalid_rowamixfix [&lt;-]V0V1V2V1Iainfix =V4aTrueFIais_gridamixfix [&lt;-]V0V1V2Iainfix =V3aTrueIavalid_columnamixfix [&lt;-]V0V1V2V1Iainfix =V3aTrueFIais_gridamixfix [&lt;-]V0V1V2Iavalid_columnamixfix [&lt;-]V0V1V2V6Aavalid_rowamixfix [&lt;-]V0V1V2V6Aavalid_columnamixfix [&lt;-]V0V1V2V6IadiffV1V6Iais_indexV6FIavalid_columnV0V7Aavalid_rowV0V7Aavalid_columnV0V7Iais_indexV7FIais_indexV1Aainfix &lt;=V2c9Aainfix &lt;=c1V2AavalidV0Aais_gridV0F">
+      <label
+       name="expl:VC for valid_update"/>
+      <proof
+       prover="1"
+       timelimit="15"
+       memlimit="4000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="14.98"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="15"
+       memlimit="4000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.23"/>
       </proof>
      </goal>
     </transf>
@@ -1112,59 +1140,1028 @@
    <goal
     name="partial_1"
     locfile="../sudoku.mlw"
-    loclnum="205" loccnumb="13" loccnume="22"
-    sum="588292b4a5f980c28741c1d717ee9fe7"
-    proved="false"
+    loclnum="197" loccnumb="13" loccnume="22"
+    sum="3850faa9d808ba1e16c9b542d0c89069"
+    proved="true"
     expanded="false"
     shape="apartialV0ainfix +V1c1Iainfix =amixfix []V0V1aprefix -c1NIapartialV0V1Iainfix &lt;V1c81F">
     <proof
      prover="3"
      timelimit="10"
      memlimit="2000"
-     obsolete="true"
+     obsolete="false"
      archived="false">
-     <result status="valid" time="0.16"/>
+     <result status="valid" time="0.17"/>
     </proof>
    </goal>
    <goal
     name="WP_parameter solve"
     locfile="../sudoku.mlw"
-    loclnum="213" loccnumb="15" loccnume="20"
+    loclnum="239" loccnumb="11" loccnume="16"
     expl="VC for solve"
-    sum="94e04440e60081c463672fb0279a3b47"
-    proved="false"
+    sum="ca891d10b77534898eb147dfb260206b"
+    proved="true"
     expanded="false"
-    shape="iainfix =V1c81afullV2Iainfix =V0V2FAaincludedV0V3AavalidV3Iainfix =V0V3Fiainfix =amixfix []V0V1aprefix -c1NafullV5Iainfix =V4aSomeV5FAaincludedV0V6AavalidV6Iainfix =V4aSomeV6FIafullV7Iainfix =V4aSomeV7FAaincludedV0V8AavalidV8Iainfix =V4aSomeV8FFAainfix &lt;=ainfix +V1c1c81AapartialV0ainfix +V1c1AavalidV0Aais_gridV0iainfix =V9aNoneiainfix &lt;=c1c9iainfix =V10aTrueafullV13Iainfix =V12aSomeV13FAaincludedV0V14AavalidV14Iainfix =V12aSomeV14FAainfix &lt;=c1c9Aainfix &lt;=c1c1Iainfix =V12V11FIafullV15Iainfix =V11aSomeV15FAaincludedamixfix [&lt;-]V0V1c1V16AavalidV16Iainfix =V11aSomeV16FFAainfix &lt;=ainfix +V1c1c81Aapartialamixfix [&lt;-]V0V1c1ainfix +V1c1Aavalidamixfix [&lt;-]V0V1c1Aais_gridamixfix [&lt;-]V0V1c1afullV17Iainfix =V9aSomeV17FAaincludedV0V18AavalidV18Iainfix =V9aSomeV18FAainfix &lt;=c1c9Aainfix &lt;=c1c1Iavalidamixfix [&lt;-]V0V1c1Iainfix =V10aTrueFAais_indexV1Aainfix &lt;=c1c9Aainfix &lt;=c1c1AavalidV0Aais_gridV0afullV19Iainfix =V9aSomeV19FAaincludedV0V20AavalidV20Iainfix =V9aSomeV20FafullV21Iainfix =V9aSomeV21FAaincludedV0V22AavalidV22Iainfix =V9aSomeV22FIafullV23Iainfix =V9aSomeV23FAaincludedV0V24AavalidV24Iainfix =V9aSomeV24FAainfix &lt;=c1c9Aainfix &lt;=c1c1FAainfix &lt;=c1c9Aainfix &lt;=c1c1Iainfix &lt;=V1c81AapartialV0V1AavalidV0Aais_gridV0F">
+    shape="ais_solution_forV3V0Iainfix =V1V3FIainfix =V2aTrueIainfix =V1V0Iainfix =V2aFalseAafullV1AaincludedV0V1AavalidV1Iainfix =V2aTrueFFAaincludedV0V0AapartialV0c0AavalidV0Aais_gridV0Aainfix &lt;=c0c81Aainfix &lt;=c0c0Aiainfix =V4c81afullV5AaincludedV0V5AavalidV5iainfix =amixfix []V5V4aprefix -c1Nainfix =V6V5Iainfix =V7aFalseAafullV6AaincludedV0V6AavalidV6Iainfix =V7aTrueIainfix =V6V5Iainfix =V7aFalseAafullV6AaincludedV0V6AavalidV6Iainfix =V7aTrueFFAaincludedV0V5AapartialV5ainfix +V4c1AavalidV5Aais_gridV5Aainfix &lt;=ainfix +V4c1c81Aainfix &lt;=c0ainfix +V4c1Aainfix &lt;ainfix -c81ainfix +V4c1ainfix -c81V4Aainfix &lt;=c0ainfix -c81V4ainfix =V8V5Iainfix =V8V5Aais_gridV8AapartialV8V4AaincludedV0V8AavalidV8Aiainfix =V10aTrueiainfix =V13aTrueafullV12AaincludedV0V12AavalidV12ainfix =V14V5Aais_gridV14AapartialV14V4AaincludedV0V14AavalidV14Iainfix =V14amixfix [&lt;-]V12V4aprefix -c1FIainfix =V12V11Iainfix =V13aFalseAafullV12AaincludedV0V12AavalidV12Iainfix =V13aTrueFFAaincludedV0V11AapartialV11ainfix +V4c1AavalidV11Aais_gridV11Aainfix &lt;=ainfix +V4c1c81Aainfix &lt;=c0ainfix +V4c1Aainfix &lt;ainfix -c81ainfix +V4c1ainfix -c81V4Aainfix &lt;=c0ainfix -c81V4Iainfix =V11amixfix [&lt;-]V8V4V9Fainfix =V8V5Aais_gridV8AapartialV8V4AaincludedV0V8AavalidV8Iavalidamixfix [&lt;-]V8V4V9Iainfix =V10aTrueFAais_indexV4Aainfix &lt;=V9c9Aainfix &lt;=c1V9AavalidV8Aais_gridV8Iainfix =V8V5Aais_gridV8AapartialV8V4AaincludedV0V8AavalidV8Iainfix &lt;=V9c9Aainfix &lt;=c1V9FFAainfix =V5V5Aais_gridV5AapartialV5V4AaincludedV0V5AavalidV5Iainfix &lt;=c1c9IaincludedV0V5AapartialV5V4AavalidV5Aais_gridV5Aainfix &lt;=V4c81Aainfix &lt;=c0V4FFIapartialV0c0Aais_gridV0AavalidV0F">
     <label
      name="expl:VC for solve"/>
-    <proof
-     prover="3"
-     timelimit="10"
-     memlimit="2000"
-     obsolete="true"
-     archived="false">
-     <result status="timeout" time="10.07"/>
-    </proof>
-   </goal>
-   <goal
-    name="WP_parameter solve_grid"
-    locfile="../sudoku.mlw"
-    loclnum="238" loccnumb="11" loccnume="21"
-    expl="VC for solve_grid"
-    sum="aa6b167d3f50b20b103572ff77a8aa3d"
-    proved="false"
-    expanded="false"
-    shape="ais_solution_forV2V0Iainfix =V1aSomeV2FIafullV3Iainfix =V1aSomeV3FAaincludedV0V4AavalidV4Iainfix =V1aSomeV4FFAainfix &lt;=c0c81AapartialV0c0AavalidV0Aais_gridV0IapartialV0c0Aais_gridV0AavalidV0F">
-    <label
-     name="expl:VC for solve_grid"/>
-    <proof
-     prover="3"
-     timelimit="10"
-     memlimit="2000"
-     obsolete="true"
-     archived="false">
-     <result status="valid" time="0.02"/>
-    </proof>
+    <transf
+     name="split_goal_wp"
+     proved="true"
+     expanded="false">
+     <goal
+      name="WP_parameter solve.1"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="1. postcondition"
+      sum="23548dcf37f56a8d98baed958d200b11"
+      proved="true"
+      expanded="false"
+      shape="afullV2AaincludedV0V2AavalidV2Iainfix =V1c81IaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.48"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.18"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.2"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="2. variant decrease"
+      sum="d1fc94194b2d83432021819c846b617c"
+      proved="true"
+      expanded="false"
+      shape="ainfix &lt;ainfix -c81ainfix +V1c1ainfix -c81V1Aainfix &lt;=c0ainfix -c81V1Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.09"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.3"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="3. precondition"
+      sum="acac7e52ceede65d4e89518710850729"
+      proved="true"
+      expanded="false"
+      shape="ainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.63"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.10"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.4"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="4. precondition"
+      sum="33e357b6544109abf4459cfecf048922"
+      proved="true"
+      expanded="false"
+      shape="ais_gridV2Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="8.61"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.08"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.5"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="5. precondition"
+      sum="74050e680e43d8d19a29872b5755b468"
+      proved="true"
+      expanded="false"
+      shape="avalidV2Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="8.91"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.6"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="6. precondition"
+      sum="5d06a33a65f4469744b94f3ed3c8eb0b"
+      proved="true"
+      expanded="false"
+      shape="apartialV2ainfix +V1c1Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="8.57"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.13"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.7"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="7. precondition"
+      sum="d6e4100af0f07155ff443518600963a8"
+      proved="true"
+      expanded="false"
+      shape="aincludedV0V2Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.55"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.8"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="8. postcondition"
+      sum="5678c78d116c2a9410408ce5d88cddaa"
+      proved="true"
+      expanded="false"
+      shape="afullV3AaincludedV0V3AavalidV3Iainfix =V4aTrueIainfix =V3V2Iainfix =V4aFalseAafullV3AaincludedV0V3AavalidV3Iainfix =V4aTrueFFIaincludedV0V2AapartialV2ainfix +V1c1AavalidV2Aais_gridV2Aainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.42"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.13"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.9"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="9. postcondition"
+      sum="0eac693b1b35e3ab23e056a26c09369d"
+      proved="true"
+      expanded="false"
+      shape="ainfix =V3V2Iainfix =V4aFalseIainfix =V3V2Iainfix =V4aFalseAafullV3AaincludedV0V3AavalidV3Iainfix =V4aTrueFFIaincludedV0V2AapartialV2ainfix +V1c1AavalidV2Aais_gridV2Aainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =amixfix []V2V1aprefix -c1NIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="8.34"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.11"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.10"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="10. loop invariant init"
+      sum="5841953d6d411b0322286296f3995bea"
+      proved="true"
+      expanded="false"
+      shape="apartialV2V1AaincludedV0V2AavalidV2Iainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.43"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.11"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="11. loop invariant init"
+      sum="028c779da63b73d919551b348a6dab2f"
+      proved="true"
+      expanded="false"
+      shape="ais_gridV2Iainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.16"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.12"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="12. loop invariant init"
+      sum="578857462f16c82dfbda2746daa40fe1"
+      proved="true"
+      expanded="false"
+      shape="ainfix =V2V2Iainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.85"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="10.13"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.13"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="13. precondition"
+      sum="6391ffcd106fdd833d52220ab852f0e7"
+      proved="true"
+      expanded="false"
+      shape="ais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.34"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.13"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.14"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="14. precondition"
+      sum="532737e3b8ef0b4c2b2aae8101230f0d"
+      proved="true"
+      expanded="false"
+      shape="avalidV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="8.67"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.15"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="15. precondition"
+      sum="eaf27fb3cfcdba2366d63431c0b10a96"
+      proved="true"
+      expanded="false"
+      shape="ainfix &lt;=V4c9Aainfix &lt;=c1V4Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.13"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.16"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="16. precondition"
+      sum="ea36775df48a24ad9d372db54407f9b4"
+      proved="true"
+      expanded="false"
+      shape="ais_indexV1Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="8.79"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.13"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.17"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="17. variant decrease"
+      sum="85fd92d11cf777240e8da3dba1ee48c3"
+      proved="true"
+      expanded="false"
+      shape="ainfix &lt;ainfix -c81ainfix +V1c1ainfix -c81V1Aainfix &lt;=c0ainfix -c81V1Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.10"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.18"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="18. precondition"
+      sum="163f5b44f6049ce9e7bf4327f0b7a37d"
+      proved="true"
+      expanded="false"
+      shape="ainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.64"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.14"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.19"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="19. precondition"
+      sum="f993949400f9d11d6bf33de5a84ec615"
+      proved="true"
+      expanded="false"
+      shape="ais_gridV6Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.86"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.24"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.20"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="20. precondition"
+      sum="d59767d923da6ef2f502d8fee93f15b8"
+      proved="true"
+      expanded="false"
+      shape="avalidV6Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.96"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.14"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.21"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="21. precondition"
+      sum="a0db1ab1f6ccafc83f23077e8d97bb5e"
+      proved="true"
+      expanded="false"
+      shape="apartialV6ainfix +V1c1Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.90"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.24"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.22"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="22. precondition"
+      sum="b07b8a0b00e431781e5455453af8be06"
+      proved="true"
+      expanded="false"
+      shape="aincludedV0V6Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.91"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.11"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.23"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="23. postcondition"
+      sum="d81e825e18298ec2ce8350465db772de"
+      proved="true"
+      expanded="false"
+      shape="afullV7AaincludedV0V7AavalidV7Iainfix =V8aTrueIainfix =V7V6Iainfix =V8aFalseAafullV7AaincludedV0V7AavalidV7Iainfix =V8aTrueFFIaincludedV0V6AapartialV6ainfix +V1c1AavalidV6Aais_gridV6Aainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.85"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.09"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.24"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="24. loop invariant preservation"
+      sum="f0531eb4f30c9388e86fa6198fdc2c55"
+      proved="true"
+      expanded="false"
+      shape="apartialV9V1AaincludedV0V9AavalidV9Iainfix =V9amixfix [&lt;-]V7V1aprefix -c1FIainfix =V8aTrueNIainfix =V7V6Iainfix =V8aFalseAafullV7AaincludedV0V7AavalidV7Iainfix =V8aTrueFFIaincludedV0V6AapartialV6ainfix +V1c1AavalidV6Aais_gridV6Aainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.98"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.16"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.25"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="25. loop invariant preservation"
+      sum="263899bf8ad1a3b4642eb651435baf29"
+      proved="true"
+      expanded="false"
+      shape="ais_gridV9Iainfix =V9amixfix [&lt;-]V7V1aprefix -c1FIainfix =V8aTrueNIainfix =V7V6Iainfix =V8aFalseAafullV7AaincludedV0V7AavalidV7Iainfix =V8aTrueFFIaincludedV0V6AapartialV6ainfix +V1c1AavalidV6Aais_gridV6Aainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.99"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.14"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.26"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="26. loop invariant preservation"
+      sum="6b9541b30eb732b282d13bcd11ffe17d"
+      proved="true"
+      expanded="false"
+      shape="ainfix =V9V2Iainfix =V9amixfix [&lt;-]V7V1aprefix -c1FIainfix =V8aTrueNIainfix =V7V6Iainfix =V8aFalseAafullV7AaincludedV0V7AavalidV7Iainfix =V8aTrueFFIaincludedV0V6AapartialV6ainfix +V1c1AavalidV6Aais_gridV6Aainfix &lt;=ainfix +V1c1c81Aainfix &lt;=c0ainfix +V1c1Iainfix =V6amixfix [&lt;-]V3V1V4FIainfix =V5aTrueIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.82"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.15"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.27"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="27. loop invariant preservation"
+      sum="63efa4edc8ecd4f0d2aaa1e9b0266544"
+      proved="true"
+      expanded="false"
+      shape="apartialV3V1AaincludedV0V3AavalidV3Iainfix =V5aTrueNIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.92"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.14"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.28"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="28. loop invariant preservation"
+      sum="c729053669de0b24e21188c465f624b1"
+      proved="true"
+      expanded="false"
+      shape="ais_gridV3Iainfix =V5aTrueNIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.89"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.14"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.29"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="29. loop invariant preservation"
+      sum="1483b26ec59c89721d3138e6d4ca2690"
+      proved="true"
+      expanded="false"
+      shape="ainfix =V3V2Iainfix =V5aTrueNIavalidamixfix [&lt;-]V3V1V4Iainfix =V5aTrueFIais_indexV1Aainfix &lt;=V4c9Aainfix &lt;=c1V4AavalidV3Aais_gridV3Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3Iainfix &lt;=V4c9Aainfix &lt;=c1V4FFIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.94"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.08"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.30"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="30. postcondition"
+      sum="cd9eb1c1d01d41a2f58c9eee4723e44f"
+      proved="true"
+      expanded="false"
+      shape="ainfix =V3V2Iainfix =V3V2Aais_gridV3AapartialV3V1AaincludedV0V3AavalidV3FIainfix &lt;=c1c9Iainfix =amixfix []V2V1aprefix -c1NNIainfix =V1c81NIaincludedV0V2AapartialV2V1AavalidV2Aais_gridV2Aainfix &lt;=V1c81Aainfix &lt;=c0V1FFIapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="9.54"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.31"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="31. precondition"
+      sum="2f83e2ec8821a55bf6fd153c4cacaf70"
+      proved="true"
+      expanded="false"
+      shape="ainfix &lt;=c0c81Aainfix &lt;=c0c0IapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.82"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.32"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="32. precondition"
+      sum="89377731bce2afcf850bf6e7b27e2fd4"
+      proved="true"
+      expanded="false"
+      shape="ais_gridV0IapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.96"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.33"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="33. precondition"
+      sum="8cc0b746d0c957e8ad88a1ecceb1c17b"
+      proved="true"
+      expanded="false"
+      shape="avalidV0IapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.92"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.10"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.34"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="34. precondition"
+      sum="937b30e876e2085f35b1a1b3533dd2dd"
+      proved="true"
+      expanded="false"
+      shape="apartialV0c0IapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.91"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.35"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="35. precondition"
+      sum="8ed8264c29528c3994c2079f385ad38e"
+      proved="true"
+      expanded="false"
+      shape="aincludedV0V0IapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.98"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.12"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter solve.36"
+      locfile="../sudoku.mlw"
+      loclnum="239" loccnumb="11" loccnume="16"
+      expl="36. postcondition"
+      sum="353740e85e9653b195850414e72eb6fa"
+      proved="true"
+      expanded="false"
+      shape="ais_solution_forV3V0Iainfix =V1V3FIainfix =V2aTrueIainfix =V1V0Iainfix =V2aFalseAafullV1AaincludedV0V1AavalidV1Iainfix =V2aTrueFFIaincludedV0V0AapartialV0c0AavalidV0Aais_gridV0Aainfix &lt;=c0c81Aainfix &lt;=c0c0IapartialV0c0Aais_gridV0AavalidV0F">
+      <label
+       name="expl:VC for solve"/>
+      <proof
+       prover="1"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="timeout" time="9.94"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       memlimit="2000"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.08"/>
+      </proof>
+     </goal>
+    </transf>
    </goal>
   </theory>
  </file>
